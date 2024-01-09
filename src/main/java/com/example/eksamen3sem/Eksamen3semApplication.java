@@ -9,5 +9,5 @@ public class Eksamen3semApplication {
     public static void main(String[] args) {
         SpringApplication.run(Eksamen3semApplication.class, args);
     }
-//test push virker
+
 }
