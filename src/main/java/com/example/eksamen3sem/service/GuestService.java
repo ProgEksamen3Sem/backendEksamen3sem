@@ -20,8 +20,8 @@ public class GuestService {
     }
 
     // Save a guest
-    public Guest saveGuest(Guest guest) {
-        // Add any business logic/validation if needed before saving
+    public Guest createGuest(Guest guest) {
+        // Add any business logic/validation if needed before creating
         guest.setCreated(LocalDateTime.now());
         return guestRepository.save(guest);
     }
