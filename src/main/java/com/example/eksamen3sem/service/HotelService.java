@@ -1,7 +1,9 @@
 package com.example.eksamen3sem.service;
 
 import com.example.eksamen3sem.entity.Hotel;
+import com.example.eksamen3sem.entity.Room;
 import com.example.eksamen3sem.repository.HotelRepository;
+import com.example.eksamen3sem.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,12 @@ import java.util.Optional;
 public class HotelService {
 
     private final HotelRepository hotelRepository;
+    private final RoomRepository roomRepository;
 
     @Autowired
-    public HotelService(HotelRepository hotelRepository) {
+    public HotelService(HotelRepository hotelRepository, RoomRepository roomRepository) {
         this.hotelRepository = hotelRepository;
+        this.roomRepository = roomRepository;
     }
 
     // Save a hotel
@@ -35,6 +39,10 @@ public class HotelService {
     public Optional<Hotel> getHotelById(Long hotelId) {
         return hotelRepository.findById(hotelId);
     }
+    // Get hotel by ID
+    public List<Hotel> search(String name) {
+        return hotelRepository.findByNameContaining(name);
+    }
 
     // Update a hotel
     public Hotel updateHotel(Hotel hotel) {
@@ -45,6 +53,11 @@ public class HotelService {
 
     // Delete a hotel
     public void deleteHotel(Long hotelId) {
+        Optional<Hotel> hotel = getHotelById(hotelId);
+        hotel.ifPresent(h -> {
+            List<Room> rooms = roomRepository.findByHotel(h);
+            rooms.stream().forEach(r -> roomRepository.delete(r));
+        });
         hotelRepository.deleteById(hotelId);
     }
 }

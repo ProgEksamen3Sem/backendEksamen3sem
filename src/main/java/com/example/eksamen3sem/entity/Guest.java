@@ -1,5 +1,6 @@
 package com.example.eksamen3sem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import jakarta.persistence.Id;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) //Ignore Hibernate lazy-loading properties
 public class Guest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
