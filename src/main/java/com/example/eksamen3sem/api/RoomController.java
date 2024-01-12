@@ -46,6 +46,7 @@ public class RoomController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+
     @PutMapping("/update")
     public ResponseEntity<Room> updateRoom(@RequestBody Room room) {
         try {
@@ -67,5 +68,7 @@ public class RoomController {
     public List<Room> getAllRoomsByHotelId(@PathVariable Long hotelId) {
         return roomService.findAllRoomsByHotelId(hotelId);
     }
+
+
 }
 

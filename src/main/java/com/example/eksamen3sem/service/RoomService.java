@@ -34,6 +34,7 @@ public class RoomService {
         return roomRepository.findById(roomId);
     }
 
+
     // Update a room
     public Room updateRoom(Room room) {
         // Add any business logic/validation if needed before updating
@@ -49,5 +50,7 @@ public class RoomService {
     public List<Room> findAllRoomsByHotelId(Long hotelId) {
         return roomRepository.findAllRoomsByHotelId(hotelId);
     }
+
+
 }
 
