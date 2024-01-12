@@ -62,5 +62,10 @@ public class RoomController {
         roomService.deleteRoom(roomId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/byHotel/{hotelId}")
+    public List<Room> getAllRoomsByHotelId(@PathVariable Long hotelId) {
+        return roomService.findAllRoomsByHotelId(hotelId);
+    }
 }
 

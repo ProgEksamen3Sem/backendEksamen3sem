@@ -26,6 +26,7 @@ public class Hotel {
     private String city;
     private String zip;
     private String country;
+    private String type;
 
     private LocalDateTime created;
     private LocalDateTime updated;

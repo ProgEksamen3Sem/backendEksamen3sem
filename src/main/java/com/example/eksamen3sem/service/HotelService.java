@@ -60,4 +60,8 @@ public class HotelService {
         });
         hotelRepository.deleteById(hotelId);
     }
+
+    public List<Hotel> findByHotelType(String hotelType) {
+        return hotelRepository.findByHotelType(hotelType);
+    }
 }

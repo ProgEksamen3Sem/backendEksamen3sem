@@ -73,4 +73,9 @@ public class HotelController {
         hotelService.deleteHotel(hotelId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/byType/{type}")
+    public List<Hotel> getHotelsByType(@PathVariable String type) {
+        return hotelService.findByHotelType(type);
+    }
 }
