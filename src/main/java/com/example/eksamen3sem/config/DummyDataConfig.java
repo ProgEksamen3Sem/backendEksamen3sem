@@ -54,7 +54,7 @@ public class DummyDataConfig implements CommandLineRunner {
                 }
             }
             // System.out.println(hotelService.getNumberOfRooms(1));
-        //TODO fiks så alle hoteller har 10-40 værelser!!!
+
 
         }
     }
